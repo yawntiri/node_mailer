@@ -1,6 +1,6 @@
 //import nodemailer
 const nodemailer = require('nodemailer');
-
+const path = require('path');
 //import env
 const{USER, PASS, TO}= require('../env.js');
 const mymailer = (req, res) => {
@@ -29,5 +29,11 @@ transporter.sendMail(message).then((info)=>{
 })
 
 }
+const getapp = (req, res) => {
+    res.sendFile(path.join(__dirname,'..', 'public','index.html'))
+    console.log(req.body)
+}
+const getform = (req, res) => {
+    }
 
-module.exports ={mymailer}
+module.exports ={mymailer, getapp, getform}
